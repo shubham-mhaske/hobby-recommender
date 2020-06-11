@@ -103,4 +103,4 @@ def get_results(submit_button,academic_olympiad,academic_scholarship,academic_sc
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run_server()
