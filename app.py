@@ -64,42 +64,43 @@ dbc.NavbarSimple(
 def get_results(submit_button,academic_olympiad,academic_scholarship,academic_school,academic_select_sub,academic_projects,academic_grasping_power,sports_medals,sports_career,
     sports_activity,sports_playtime,arts_painting,arts_competition,arts_playtime):
 
-    
+        
         input_val = [academic_olympiad,academic_scholarship,academic_school,academic_select_sub,academic_projects,sports_medals,sports_career,
                     sports_activity,arts_painting,arts_competition,academic_grasping_power,sports_playtime,arts_playtime]
-        uncat=input_val[10:13]
-        Normalized= Normalizer().fit_transform(np.array(uncat).reshape(-1,1))
-        features= [j for j in input_val[0:10]]
-        features_encode=[]
-        for z in features:
-            if z==1:
-                features_encode.append(1)
-            elif z==0:
-                features_encode.append(0)
-            elif z=="Mathematics":
-                features_encode.append(2)
-            elif z=="Science":
-                features_encode.append(3)
-            elif z=="Any Language":
-                features_encode.append(0)
-            elif z=="History/Geography":
-                features_encode.append(1)
-        for k in Normalized :
-            features_encode.append(int(k))
+        if( not input_val == [99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99]):
+            uncat=input_val[10:13]
+            Normalized= Normalizer().fit_transform(np.array(uncat).reshape(-1,1))
+            features= [j for j in input_val[0:10]]
+            features_encode=[]
+            for z in features:
+                if z==1:
+                    features_encode.append(1)
+                elif z==0:
+                    features_encode.append(0)
+                elif z=="Mathematics":
+                    features_encode.append(2)
+                elif z=="Science":
+                    features_encode.append(3)
+                elif z=="Any Language":
+                    features_encode.append(0)
+                elif z=="History/Geography":
+                    features_encode.append(1)
+            for k in Normalized :
+                features_encode.append(int(k))
+            prediction = model.predict(np.array(features_encode).reshape(1,-1))
+            
+            if int(prediction)==0:
+                prediction = "Predcited Hobby : Academics "
+            elif int(prediction)==1:
+                prediction = "Predicted Hobby : Arts"
+            elif int(prediction)==2:
+                prediction = "Predicted Hobby : Sports"
+            return [html.Br(),dbc.Alert(prediction,color = 'info')]
+        else:
+            return('No input')
         
-        prediction = model.predict(np.array(features_encode).reshape(1,-1))
-        
-        if int(prediction)==0:
-            prediction = "Predcited Hobby : Academics "
-        elif int(prediction)==1:
-            prediction = "Predicted Hobby : Arts"
-        elif int(prediction)==2:
-            prediction = "Predicted Hobby : Sports"
-        
-        
-        return [html.Br(),dbc.Alert(prediction)]
 
 
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run()

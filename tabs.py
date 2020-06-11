@@ -22,6 +22,7 @@ academic_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'academic_olympiad'
                     )
@@ -40,6 +41,7 @@ academic_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'academic_scholarship'
                     )
@@ -58,6 +60,7 @@ academic_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'academic_school'
                     )
@@ -78,6 +81,7 @@ academic_tab = dbc.Card(
                                 {"label": "Any Language", "value": "Any Language"},
                                 {"label": "History/Geography", "value": "History/Geography"},
                             ],
+                            value = 99
                             
                         )
                     )
@@ -96,6 +100,7 @@ academic_tab = dbc.Card(
                             {"label": "No", "value": 0},
                         ],
                         inline = True,
+                        value = 99,
                         id = 'academic_projects'
                     )
                 )
@@ -117,7 +122,8 @@ academic_tab = dbc.Card(
                             4: '4',
                             5: '5'
                         },
-                        id = 'academic_grasping_power'
+                        id = 'academic_grasping_power',
+                        value = 99
                     )
                 )
             ]),
@@ -142,6 +148,7 @@ sports_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'sports_medals'
                     )
@@ -159,6 +166,7 @@ sports_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'sports_career'
                     )
@@ -176,6 +184,7 @@ sports_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'sports_activity'
                     )
@@ -198,7 +207,8 @@ sports_tab = dbc.Card(
                             4: '4',
                             5: '5'
                         },
-                        id = 'sports_playtime'
+                        id = 'sports_playtime',
+                        value = 99
                     )
                 )
             ]),
@@ -223,6 +233,7 @@ arts_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'arts_painting'
                     )
@@ -240,6 +251,7 @@ arts_tab = dbc.Card(
                             {"label": "Yes", "value": 1},
                             {"label": "No", "value": 0},
                         ],
+                        value = 99,
                         inline = True,
                         id = 'arts_competition'
                     )
@@ -262,6 +274,7 @@ arts_tab = dbc.Card(
                             4: '4',
                             5: '5'
                         },
+                        value = 99,
                         id = 'arts_playtime'
                     )
                 )
