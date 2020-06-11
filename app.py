@@ -22,7 +22,7 @@ label_width = 3
 server = flask.Flask(__name__)
 server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
 app = dash.Dash(__name__, server=server,external_stylesheets=[dbc.themes.LUX])
-
+app.title = 'Hobby Recommender'
 '''
 app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 server = app.server
