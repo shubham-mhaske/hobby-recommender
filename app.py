@@ -5,6 +5,11 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import tabs
+import flask
+import os
+from random import randint
+
+
 
 from sklearn.preprocessing import Normalizer
 import numpy as np
@@ -14,8 +19,14 @@ model=pickle.load(open("pickle_SVM.pkl","rb"))
 
 label_width = 3
 
+server = flask.Flask(__name__)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+app = dash.Dash(__name__, server=server,external_stylesheets=[dbc.themes.LUX])
+
+'''
 app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 server = app.server
+'''
 #app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div(children = [
@@ -103,4 +114,5 @@ def get_results(submit_button,academic_olympiad,academic_scholarship,academic_sc
 
 
 if __name__ == "__main__":
-    app.run_server()
+    #app.run_server()
+    app.server.run(debug=True, threaded=True)
