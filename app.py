@@ -16,6 +16,7 @@ label_width = 3
 
 app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 server = app.server
+app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div(children = [
 
@@ -26,7 +27,7 @@ dbc.NavbarSimple(
             
         ],
         brand="Hobby Recommender",
-        brand_href="#",
+        
         color="primary",
         dark = True
         
@@ -101,4 +102,4 @@ def get_results(submit_button,academic_olympiad,academic_scholarship,academic_sc
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run_server()
